@@ -1,18 +1,30 @@
 #### elm-aspect-ratio
 
-A container for HTML that maintains its aspect ratio
+A container for HTML that maintains its aspect ratio.
+
+```elm
+AspectRatio.view : Ratio.Rational -> Html a -> Html a
+```
+
+#### example
 
 ```elm
 import Ratio
 import AspectRatio
-import Html exposing (Html, img)
-import Html.Attributes exposing (src)
+import Html exposing (Html, div)
+import Html.Attributes exposing (style)
 
-cinematic : Ratio
-cinematic = Ratio.over 16 9
+cinematic : Ratio.Rational
+cinematic = Ratio.over 9 16
+
+redRectangle =
+    div [ style [ ( "background-color", "red" )
+                , ( "width", "100%" )
+                , ( "height", "100%" )
+                ] ] []
 
 cinematicImage : String -> Html a
 cinematicImage src =
-    AspectRatio.view (img [ src preview ] [])
+    AspectRatio.view cinematic redRectangle
 ```
 
