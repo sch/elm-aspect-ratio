@@ -4,6 +4,7 @@ A container for HTML that maintains its aspect ratio.
 
 ```elm
 AspectRatio.view : Ratio.Rational -> Html a -> Html a
+AspectRatio.img : Ratio.Rational -> String -> Html a
 ```
 
 #### example
